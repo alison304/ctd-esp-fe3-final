@@ -6,9 +6,9 @@ import { useParams } from 'react-router-dom'
 const Detail = () => {
   const [detail, setDetail] = useState({});
   const { id } = useParams();
-  const url = "https://jsonplaceholder.typicode.com/users" + id;
+  const url = "https://jsonplaceholder.typicode.com/users/" + id;
   useEffect(() => {
-    axios(url).then((res) =>{
+    axios(url).then((res) => {
       console.log(res.data);
       setDetail(res.data);
     });
@@ -16,7 +16,7 @@ const Detail = () => {
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
   return (
     <>
-      <h1>Detail Dentist id </h1>
+      <h1>Detail Dentist id</h1>
       <h3>Name: {detail.name}</h3>
       <h3>Email: {detail.email}</h3>
       <h3>Phone: {detail.phone}</h3>

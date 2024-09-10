@@ -11,13 +11,13 @@ const Navbar = () => {
       {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
       <div className='logo'>
-        <img src={ DH } alt="Logo" width="160" height="40" />
+        <img src={DH} alt="Logo" width="160" height="40" />
       </div>
       <Link to="/">
         <h4>Home</h4>
       </Link>
-      <Link to="/detail">
-        <h4>Detail</h4>
+      <Link to="/contact">
+        <h4>Contact</h4>
       </Link>
       <Link to="/favs">
         <h4>Favs</h4>
