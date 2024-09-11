@@ -5,20 +5,25 @@ const Form = () => {
   const [values, setValues] = React.useState({
     fullname: "",
     email: "",
+    hidden: true,
   });
 
   function handleChange(event) {
     const newValues = {
       ...values,
+      hidden: true,
       [event.target.name]: event.target.value
     };
-
     setValues(newValues);
   }
 
-  function handleSubmit(evt) {
-    evt.preventDefault();
-    console.log(values);
+  function handleSubmit(event) {
+    event.preventDefault();
+    const newValues = {
+      ...values,
+      hidden: false
+    };
+    setValues(newValues);
   }
 
   return (
@@ -42,7 +47,8 @@ const Form = () => {
         />
         <button type="submit">Send</button>
       </form>
-    </div>
+      <label hidden={values.hidden}>Gracias {values.fullname}, te contactaremos cuando antes vía mail</label>
+    </div >
   );
 };
 
