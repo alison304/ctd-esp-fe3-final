@@ -1,3 +1,4 @@
+import { TbBackground } from 'react-icons/tb';
 import Card from '../Components/Card';
 import { useDentistStates } from "../Components/utils/Context";
 
@@ -9,6 +10,13 @@ const titleStyle = {
   margin: "10px auto",
   borderRadius: "10px",
 };
+
+const subStyle = {
+  color: "#FFFFFF",
+  textAlign: "center",
+  backgroundColor: "#e1041f",
+  padding: "10px 10px",
+}
 
 const Home = () => {
   const { dentists } = useDentistStates();
@@ -22,6 +30,7 @@ const Home = () => {
             <Card key={dentist.id} dentist={dentist} />
         ))}
       </div>
+      <p style={subStyle}>VOLTAR PARA O TOPO</p>
     </>
   );
 };

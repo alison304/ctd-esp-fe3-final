@@ -17,4 +17,16 @@
   flex-direction: row;
   justify-content: space-around;
   padding-left: 100px;
+  margin-left: 100px;
+}
+
+.btn-moon {
+  margin-top: 20px;
+  margin-left: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: #d1b362;
+  background-color: #1e2124;
+  width: 43px;
+  height: 40px;
 }

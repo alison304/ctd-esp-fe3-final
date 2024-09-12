@@ -22,7 +22,7 @@ const Navbar = () => {
         <Link to="/favs">
           <h4>Favs</h4>
         </Link>
-        <button><GoMoon /></button>
+        <button className="btn-moon"><GoMoon /></button>
       </div>
     </div>
   );
