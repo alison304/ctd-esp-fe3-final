@@ -1,4 +1,3 @@
-import { TbBackground } from 'react-icons/tb';
 import Card from '../Components/Card';
 import { useDentistStates } from "../Components/utils/Context";
 
