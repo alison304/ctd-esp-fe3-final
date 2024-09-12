@@ -6,7 +6,5 @@ export const reducer = (state, action) => {
             return {...state, favs: [...state.favs, action.payload]};
         case "TOGGLE_THEME":
             return {}
-        case "REMOVE_FAV":
-            return {}
     }
 };

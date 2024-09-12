@@ -10,7 +10,8 @@ const Card = ({ dentist }) => {
 
   const addFav = () => {
     //setFavs((favs) => [...favs, dentist]);
-    dispatch({type: "ADD_FAV", payload: dentist})
+    dispatch({type: "ADD_FAV", payload: dentist});
+    alert('Dentist added successfully');
   }
 
   {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
