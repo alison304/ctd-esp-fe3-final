@@ -13,8 +13,10 @@ const Detail = () => {
       console.log(res.data);
       setDetail(res.data);
     });
-  }, []);
+  }, [url]);
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
+  {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
+  {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
   return (
     <>
       <h1>Detail Dentist {detail.id}</h1>
@@ -23,8 +25,6 @@ const Detail = () => {
       <h3>Email: {detail.email}</h3>
       <h3>Phone: {detail.phone}</h3>
       <h3>Website: {detail.website}</h3>
-      {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
-      {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
     </>
   )
 }

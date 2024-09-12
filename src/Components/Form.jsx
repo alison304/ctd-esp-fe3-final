@@ -5,13 +5,15 @@ const Form = () => {
   const [values, setValues] = React.useState({
     fullname: "",
     email: "",
-    hidden: true,
+    flagMessageSuccess: false,
+    flagMessageError: false
   });
 
   function handleChange(event) {
     const newValues = {
       ...values,
-      hidden: true,
+      flagMessageSuccess: false,
+      flagMessageError: false,
       [event.target.name]: event.target.value
     };
     setValues(newValues);
@@ -19,10 +21,14 @@ const Form = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const newValues = {
-      ...values,
-      hidden: false
+    let newValues = {
+      ...values
     };
+    if (values.fullname.length >= 3) {
+      newValues.flagMessageSuccess = true;
+    } else {
+      newValues.flagMessageError = true;
+    }
     setValues(newValues);
   }
 
@@ -32,10 +38,10 @@ const Form = () => {
         <input
           id="fullname"
           name="fullname"
-          type="fullname"
+          type="text"
           value={values.fullname}
           onChange={handleChange}
-          placeholder='Fullname'
+          placeholder='Full name'
         />
         <input
           id="email"
@@ -47,7 +53,8 @@ const Form = () => {
         />
         <button type="submit">Send</button>
       </form>
-      <label hidden={values.hidden}>Gracias {values.fullname}, te contactaremos cuando antes vía mail</label>
+      <label hidden={!values.flagMessageSuccess}>Gracias {values.fullname}, te contactaremos cuando antes vía mail</label>
+      <label hidden={!values.flagMessageError}>Por favor, verifique su información nuevamente</label>
     </div >
   );
 };
