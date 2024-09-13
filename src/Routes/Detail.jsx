@@ -1,30 +1,42 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
-//import { useMemo } from "react";
+import Table from '../Components/utils/Table'
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Detail = () => {
-  const [detail, setDetail] = useState({});
+  const [userList, setUserList] = useState([]);
   const { id } = useParams();
   const url = "https://jsonplaceholder.typicode.com/users/" + id;
+
   useEffect(() => {
     axios(url).then((res) => {
-      console.log(res.data);
-      setDetail(res.data);
+      let element = res.data;
+      delete element["address"]; // Remove the property
+      delete element["company"]; // Remove the property      
+      delete element["id"]; // Remove the property
+      delete element["username"]; // Remove the property
+      let list = [];
+      list.push(element);
+      setUserList(list);
     });
   }, [url]);
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
-  {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
-  {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
+  {/* aqui deberan renderizar la informacion en detalle de un user en especifico */ }
+  {/* Deberan mostrar el name - email - phone - website por cada user en especifico */ }
   return (
     <>
-      <h1>Detail Dentist {detail.id}</h1>
+      <h1>Detail Dentist {id}</h1>
       <br />
-      <h3>Name: {detail.name}</h3>
-      <h3>Email: {detail.email}</h3>
-      <h3>Phone: {detail.phone}</h3>
-      <h3>Website: {detail.website}</h3>
+      {userList.length == 0 ? (
+        <>
+        </>
+      ) : (
+        <>
+          <Table data={userList} />
+        </>
+      )}
+
     </>
   )
 }
