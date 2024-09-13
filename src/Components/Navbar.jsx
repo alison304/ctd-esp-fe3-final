@@ -14,7 +14,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar">
+    <nav className="navbar">
       {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
       <div className='title-logo'>
@@ -40,7 +40,7 @@ const Navbar = () => {
           </>
         )}
       </div>
-    </div>
+    </nav>
   );
 };
 export default Navbar;

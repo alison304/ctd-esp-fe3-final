@@ -117,7 +117,8 @@ tr:nth-child(even) {
   background-color: #12121296;
   color: white;
 }
-.dark > a {
+
+.dark a {
   color: white;
 }
 
@@ -125,8 +126,27 @@ tr:nth-child(even) {
   background-color: #000;
 }
 
+.dark footer {
+  background-color: #000;
+}
+
 .dark .btn-moon {
   background-color: #1e2124;
+}
+
+.dark footer {
+  background-color: #000;
+  transition: filter 0.5s ease, background-color 0.5s ease;
+}
+
+.dark footer .footerLogo img {
+  filter: invert(100%) brightness(10000%);
+  transition: filter 0.5s ease;
+}
+
+.dark footer .footerIcons img {
+  filter: invert(0%) brightness(100%);
+  transition: filter 0.5s ease;
 }
 
 /* themeSwitch  */
