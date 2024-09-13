@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
 import { GoMoon } from "react-icons/go";
+import { FaRegSun } from "react-icons/fa6";
+import { useDentistStates } from "../Components/utils/Context";
 import "./Navbar.css";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Navbar = () => {
-  //const navigate = useNavigate();
+
+  const { state, dispatch } = useDentistStates();
+
+  const changeTheme = () => {
+    dispatch({ type: "TOGGLE_THEME" })
+  }
+
   return (
     <div className="navbar">
       {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
@@ -22,7 +30,15 @@ const Navbar = () => {
         <Link to="/favs">
           <h4>Favs</h4>
         </Link>
-        <button className="btn-moon"><GoMoon /></button>
+        {state.theme == "light" ? (
+          <>
+            <button className="btn-moon" onClick={changeTheme}><FaRegSun /></button>
+          </>
+        ) : (
+          <>
+            <button className="btn-moon" onClick={changeTheme}><GoMoon /></button>
+          </>
+        )}
       </div>
     </div>
   );

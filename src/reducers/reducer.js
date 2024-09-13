@@ -5,6 +5,6 @@ export const reducer = (state, action) => {
         case "ADD_FAV":
             return {...state, favs: [...state.favs, action.payload]};
         case "TOGGLE_THEME":
-            return {}
+            return {...state, theme: state.theme == "light" ? "dark" : "light"}
     }
 };

@@ -6,9 +6,9 @@ const DentistStates = createContext();
 const lsFavs = JSON.parse(localStorage.getItem("favs")) || [];
 
 const initialState = {
+  theme: "light",
   dentists: [],
-  favs: lsFavs,
-  theme: true,
+  favs: lsFavs
 }
 
 const Context = ({ children }) => {
@@ -23,7 +23,7 @@ const Context = ({ children }) => {
     axios(url).then((res) => {
       console.log(res.data);
       // setDentists(res.data);
-      dispatch({type: "GET_DENTISTS", payload:res.data})
+      dispatch({ type: "GET_DENTISTS", payload: res.data })
     });
   }, []);
 
